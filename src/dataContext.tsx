@@ -1,6 +1,6 @@
 // src/dataContext/dataContext.tsx
 import React, { createContext, useContext, ReactNode } from 'react';
-import {  NavItem, SectionData, ServiceCategory, Service, CarBrand } from './types'; 
+import { NavItem, SectionData, ServiceCategory, Service, CarBrand } from './types';
 import { FaCarSide, FaPaintBrush, FaChargingStation, FaWrench, FaHandsWash } from 'react-icons/fa';
 import { ClipboardCheck, Camera, UserCheck, Wrench } from 'lucide-react';
 
@@ -114,8 +114,45 @@ const insuranceSteps: InsuranceStep[] = [
     { id: '04', title: 'Repair Bay & Drive', icon: Wrench, desc: 'Complete high-quality repairs and finalize direct payment.', img: IMAGE_REPAIR },
 ];
 
+// --- V. STATISTICS DATA (NEW) ---
 
-// --- V. COMBINED STATIC DATA OBJECT (UPDATED) ---
+export interface StatisticItem {
+    id: number;
+    value: number;
+    decimals: number;
+    suffix: string;
+    label: string;
+    description: string;
+}
+
+const statisticsData: StatisticItem[] = [
+    {
+        id: 1,
+        value: 500,
+        decimals: 0,
+        suffix: '+',
+        label: 'Satisfied Customers',
+        description: 'Happy clients served',
+    },
+    {
+        id: 2,
+        value: 4.6,
+        decimals: 1,
+        suffix: '/5',
+        label: 'Customer Rating',
+        description: 'Average satisfaction score',
+    },
+    {
+        id: 3,
+        value: new Date().getFullYear() - 2022,
+        decimals: 0,
+        suffix: '+',
+        label: 'Years Experience',
+        description: 'In the industry',
+    },
+];
+
+// --- VI. COMBINED STATIC DATA OBJECT (UPDATED) ---
 // Define the full context type (for internal use)
 export interface StaticDataContextType {
     navItems: any[]; // Replace with actual type
@@ -124,18 +161,20 @@ export interface StaticDataContextType {
     allFlatServices: any[]; // Replace with actual type
     carBrands: any[]; // Replace with actual type
     insuranceSteps: InsuranceStep[]; // <--- ADDED
+    statisticsData: StatisticItem[]; // <--- ADDED
 }
 
 const staticData: StaticDataContextType = {
     navItems: navItems as any,
     sections: sections as any,
-    servicesData: servicesData as any, 
-    allFlatServices: allFlatServices as any, 
-    carBrands: carBrands as any, 
+    servicesData: servicesData as any,
+    allFlatServices: allFlatServices as any,
+    carBrands: carBrands as any,
     insuranceSteps,
+    statisticsData,
 };
 
-// --- VI. CONTEXT SETUP ---
+// --- VII. CONTEXT SETUP ---
 
 // Create the Context
 const StaticDataContext = createContext<StaticDataContextType | undefined>(undefined);

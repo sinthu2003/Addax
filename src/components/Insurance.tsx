@@ -1,7 +1,7 @@
 import React, { useRef, CSSProperties, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, useMotionTemplate, Variants } from 'framer-motion';
 import { InsuranceStep, useStaticData } from '../dataContext';
-import { Zap } from 'lucide-react'; // Icon for the electric flow indicator on mobile
+import { Zap, Phone, PhoneCallIcon } from 'lucide-react'; // Icons for the electric flow indicator and phone
 
 const THEME_RED = 'text-red-600 dark:text-red-500';
 const THEME_BG_RED = 'bg-red-600 dark:bg-red-700';
@@ -75,7 +75,7 @@ const InsuranceSection = () => {
             ref={sectionRef}
             id="insurance"
             // 1. REDUCED BOTTOM PADDING: pb-12 instead of py-24
-            className="relative w-full min-h-screen bg-white dark:bg-zinc-900 transition-colors duration-500 overflow-hidden pt-24 pb-12 px-4"
+            className="relative w-full min-h-[700px] bg-white dark:bg-zinc-900 transition-colors duration-500 overflow-hidden pt-24 pb-12 px-4"
         >
             {/* ================= DIAGONAL SEATBELT ================= */}
             <motion.div
@@ -203,6 +203,22 @@ const InsuranceSection = () => {
                             </React.Fragment>
                         );
                     })}
+                </motion.div>
+
+                {/* Call to Action Button */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.3 }}
+                    className="mt-16 text-center"
+                >
+                    <a
+                        href="tel:+919363039969"
+                        className={`inline-flex items-center gap-3 px-8 py-4 ${THEME_BG_RED} text-white font-bold text-lg rounded-lg hover:bg-red-700 dark:hover:bg-red-600 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105`}
+                    >
+                        <PhoneCallIcon className="w-5 h-5 text-black" />
+                        <span>Call for Claim Support</span>
+                    </a>
                 </motion.div>
             </motion.div>
         </section>
