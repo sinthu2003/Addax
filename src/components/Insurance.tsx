@@ -1,4 +1,4 @@
-import React, { useRef, CSSProperties } from 'react';
+import React, { useRef, CSSProperties, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, useMotionTemplate, Variants } from 'framer-motion';
 import { InsuranceStep, useStaticData } from '../dataContext';
 import { Zap } from 'lucide-react'; // Icon for the electric flow indicator on mobile
@@ -9,6 +9,19 @@ const THEME_BG_RED = 'bg-red-600 dark:bg-red-700';
 const InsuranceSection = () => {
     const { insuranceSteps: steps } = useStaticData();
     const sectionRef = useRef(null);
+    const [isLargeScreen, setIsLargeScreen] = useState(false);
+
+    // Detect screen size for conditional blur effect
+    useEffect(() => {
+        const checkScreenSize = () => {
+            setIsLargeScreen(window.innerWidth >= 1024);
+        };
+
+        checkScreenSize();
+        window.addEventListener('resize', checkScreenSize);
+
+        return () => window.removeEventListener('resize', checkScreenSize);
+    }, []);
 
     const { scrollYProgress } = useScroll({
         target: sectionRef,
@@ -67,12 +80,12 @@ const InsuranceSection = () => {
             {/* ================= DIAGONAL SEATBELT ================= */}
             <motion.div
                 style={{ ...seatbeltStyleStatic, pointerEvents, opacity: beltOpacity }}
-                className="hidden lg:flex md:h-32 [transform:translateY(-50%)_rotate(10deg)_perspective(1000px)] md:[transform:translateY(-50%)_rotate(25deg)_perspective(1000px)]"
+                className="md:h-32 [transform:translateY(-50%)_rotate(10deg)_perspective(1000px)] md:[transform:translateY(-50%)_rotate(25deg)_perspective(1000px)]"
             >
                 {/* Left Belt Half (Top Left Side) */}
                 <motion.div
                     style={{ x: xLeft, y: yWavy }}
-                    className="w-1/2 h-full bg-zinc-800 relative flex items-center justify-end shadow-2xl z-20 rounded-r-sm"
+                    className="hidden lg:flex w-1/2 h-full bg-zinc-800 relative flex items-center justify-end shadow-2xl z-20 rounded-r-sm"
                 >
                     <div className="absolute inset-0 opacity-30 bg-[repeating-linear-gradient(90deg,transparent,transparent_4px,#000_4px,#000_8px)] dark:opacity-50 dark:bg-[repeating-linear-gradient(90deg,transparent,transparent_4px,#FFF_4px,#FFF_8px)]" />
                     <div className="relative -mr-2 z-30 flex items-center transform scale-90 md:scale-110">
@@ -88,7 +101,7 @@ const InsuranceSection = () => {
                 {/* Right Belt Half (Bottom Right Side) */}
                 <motion.div
                     style={{ x: xRight, y: yWavy }}
-                    className="w-1/2 h-full bg-zinc-800 relative flex items-center justify-start shadow-2xl z-20 rounded-l-sm"
+                    className="hidden lg:flex w-1/2 h-full bg-zinc-800 relative flex items-center justify-start shadow-2xl z-20 rounded-l-sm"
                 >
                     <div className="absolute inset-0 opacity-30 bg-[repeating-linear-gradient(90deg,transparent,transparent_4px,#000_4px,#000_8px)] dark:opacity-50 dark:bg-[repeating-linear-gradient(90deg,transparent,transparent_4px,#FFF_4px,#FFF_8px)]" />
                     <div className="relative -ml-2 z-40 transform scale-90 md:scale-110">
@@ -107,7 +120,7 @@ const InsuranceSection = () => {
 
             {/* ================= MAIN CONTENT (Revealed by unbuckling) ================= */}
             <motion.div
-                style={{ filter: contentFilter }}
+                style={{ filter: isLargeScreen ? contentFilter : 'none' }}
                 className="max-w-7xl mx-auto relative z-10 will-change-transform"
             >
                 <div className="text-center mb-16">
