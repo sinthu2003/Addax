@@ -7,6 +7,9 @@ import BrandCarousel from './BrandCarousel'
 import Insurance from './Insurance'
 import Statistics from './Statistics'
 import Pricing from './Pricing/Pricing'
+import Package from './Pricing/Package'
+import CustomerReview from './CustomerReview'
+import Contact from './Contact'
 
 const Main = () => {
   return (
@@ -18,6 +21,9 @@ const Main = () => {
       <Insurance />
       <Statistics />
       <Pricing />
+      <Package />
+      <CustomerReview />
+      <Contact />
       <Footer />
     </StaticDataProvider>
   )

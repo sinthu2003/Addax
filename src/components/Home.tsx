@@ -36,8 +36,7 @@ const Home: React.FC = () => {
 
                         {/* Primary CTA: Booking */}
                         <a
-                            href="/booking"
-                            className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-xl text-lg font-bold transition duration-300 shadow-xl transform hover:scale-[1.03]"
+                            className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-xl text-lg font-bold transition duration-300 shadow-xl transform hover:scale-[1.03] cursor-pointer"
                         >
                             Book Your Service Now
                         </a>

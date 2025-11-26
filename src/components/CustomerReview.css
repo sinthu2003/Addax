@@ -1,0 +1,327 @@
+/* Customer Review Section - Car Wash Theme */
+.review-section {
+    position: relative;
+    min-height: 800px;
+    background: hsl(var(--color-background));
+    overflow: hidden;
+    perspective: 1000px;
+}
+
+/* Spray Nozzle Container - Top Left Corner, 1/12 hidden */
+.pipe-container-corner {
+    position: absolute;
+    top: 10px;
+    left: -23px;
+    width: 300px;
+    height: 300px;
+    z-index: 25;
+    transform-style: preserve-3d;
+}
+
+/* Spray Nozzle Image - Bigger and opposite tilt */
+.spray-nozzle-img {
+    width: 280px;
+    height: auto;
+    transform: rotate(35deg);
+    filter: drop-shadow(5px 5px 15px rgba(0, 0, 0, 0.5));
+    animation: nozzlePulse 3s ease-in-out infinite;
+}
+
+@keyframes nozzlePulse {
+
+    0%,
+    100% {
+        transform: rotate(35deg) scale(1);
+    }
+
+    50% {
+        transform: rotate(35deg) scale(1.02);
+    }
+}
+
+/* Water Spray - Diagonal from nozzle tip (moved higher) */
+.water-spray-corner {
+    position: absolute;
+    top: 70px;
+    left: 190px;
+    width: 600px;
+    height: 400px;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.water-particle-corner {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: rgba(173, 216, 230, 0.9);
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgba(173, 216, 230, 0.8);
+    animation: sprayCorner 1.8s linear infinite;
+    opacity: 0;
+}
+
+@keyframes sprayCorner {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.9;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: translate(450px, 250px) scale(0.4);
+        opacity: 0;
+    }
+}
+
+/* Particle variations for continuous effect */
+.water-particle-corner:nth-child(10n) {
+    animation-duration: 1.5s;
+}
+
+.water-particle-corner:nth-child(10n+1) {
+    animation-duration: 1.6s;
+}
+
+.water-particle-corner:nth-child(10n+2) {
+    animation-duration: 1.7s;
+}
+
+.water-particle-corner:nth-child(10n+3) {
+    animation-duration: 1.8s;
+}
+
+.water-particle-corner:nth-child(10n+4) {
+    animation-duration: 1.9s;
+}
+
+.water-particle-corner:nth-child(10n+5) {
+    animation-duration: 2.0s;
+}
+
+.water-particle-corner:nth-child(10n+6) {
+    animation-duration: 1.7s;
+}
+
+.water-particle-corner:nth-child(10n+7) {
+    animation-duration: 1.8s;
+}
+
+.water-particle-corner:nth-child(10n+8) {
+    animation-duration: 1.9s;
+}
+
+.water-particle-corner:nth-child(10n+9) {
+    animation-duration: 2.1s;
+}
+
+/* Cards Container - Continuous rotation */
+.cards-container {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+/* Review Card Glassmorphism */
+.review-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    transition: all 0.6s ease;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.review-card::before {
+    content: '"';
+    position: absolute;
+    top: -20px;
+    left: 20px;
+    font-size: 5rem;
+    color: hsl(var(--color-primary));
+    opacity: 0.2;
+    font-family: serif;
+}
+
+/* Active center card */
+.review-card.active {
+    transform: scale(1.05);
+    background: rgba(255, 255, 255, 0.12);
+    border-color: hsl(var(--color-primary));
+    box-shadow:
+        0 12px 40px 0 rgba(0, 0, 0, 0.5),
+        0 0 30px hsla(var(--color-primary), 0.3);
+    z-index: 10;
+}
+
+/* Inactive side cards */
+.review-card.inactive {
+    transform: scale(0.9);
+    opacity: 0.6;
+}
+
+/* Wet effect on active card */
+.review-card.wet::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 40% 30%, rgba(173, 216, 230, 0.4) 0%, transparent 70%);
+    opacity: 0;
+    animation: wetShimmer 3s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes wetShimmer {
+
+    0%,
+    100% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
+}
+
+/* Static water droplets on active card - restored */
+.review-card.active::before {
+    content: '';
+    position: absolute;
+    top: 15%;
+    left: 15%;
+    width: 70%;
+    height: 70%;
+    background-image:
+        radial-gradient(circle, rgba(173, 216, 230, 0.7) 2px, transparent 2px),
+        radial-gradient(circle, rgba(173, 216, 230, 0.6) 1.5px, transparent 1.5px),
+        radial-gradient(circle, rgba(173, 216, 230, 0.5) 2.5px, transparent 2.5px);
+    background-size: 50px 50px, 75px 75px, 100px 100px;
+    background-position: 0 0, 25px 25px, 12px 50px;
+    opacity: 0;
+    animation: dropletsSplash 3s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 5;
+}
+
+@keyframes dropletsSplash {
+
+    0%,
+    100% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    30% {
+        opacity: 0.7;
+        transform: scale(1);
+    }
+
+    70% {
+        opacity: 0.4;
+    }
+}
+
+/* Falling water droplet animation - 6s delay, ease in but stay visible until card changes */
+.water-droplet-fall {
+    position: absolute;
+    top: 0;
+    width: 4px;
+    height: 8px;
+    background: linear-gradient(180deg, rgba(173, 216, 230, 0.9), rgba(173, 216, 230, 0.6));
+    border-radius: 0 0 50% 50%;
+    opacity: 0;
+    animation: dropletFall 4s ease-in forwards 6s;
+    z-index: 15;
+    pointer-events: none;
+}
+
+/* Small droplets - drip slowly */
+.water-droplet-fall:nth-child(3n) {
+    width: 3px;
+    height: 6px;
+    animation-duration: 3.5s;
+    animation-delay: 6s;
+}
+
+/* Medium dripping droplets */
+.water-droplet-fall:nth-child(3n+1) {
+    width: 5px;
+    height: 10px;
+    animation-duration: 4.5s;
+    animation-delay: 6.2s;
+}
+
+/* Large slow drips */
+.water-droplet-fall:nth-child(3n+2) {
+    width: 6px;
+    height: 12px;
+    animation-duration: 5.5s;
+    animation-delay: 6.5s;
+}
+
+/* Fewer droplets stick (only every 7th) - stay visible */
+.water-droplet-fall:nth-child(7n) {
+    animation: dropletStick 5s ease-in-out forwards 6s;
+}
+
+@keyframes dropletFall {
+    0% {
+        opacity: 0;
+        transform: translateY(0);
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.8;
+        transform: translateY(350px);
+    }
+}
+
+/* Static droplets that appear and stay visible */
+@keyframes dropletStick {
+    0% {
+        opacity: 0;
+        transform: translateY(0) scale(1);
+    }
+
+    10% {
+        opacity: 1;
+        transform: translateY(20px) scale(1.1);
+    }
+
+    100% {
+        opacity: 0.9;
+        transform: translateY(40px) scale(1);
+    }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .review-card.inactive {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .pipe-container-corner {
+        transform: scale(0.7);
+        transform-origin: top left;
+    }
+
+    .water-spray-corner {
+        display: none;
+    }
+}

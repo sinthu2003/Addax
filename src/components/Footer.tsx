@@ -6,6 +6,25 @@ import { useStaticData } from '../dataContext';
 
 const Footer: React.FC = () => {
   const { servicesData } = useStaticData()
+
+  // Handler function to scroll without changing the URL
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+
+    // Extract the target ID (e.g., '#services' becomes 'services')
+    const targetId = href.substring(1);
+    const targetElement = document.getElementById(targetId);
+
+    if (targetElement) {
+      // Use scrollIntoView with smooth behavior
+      targetElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start', // Scroll to the top of the element
+      });
+
+    }
+  };
+
   return (
     // Outer container with black background and white text
     <footer className="bg-black text-white dark:bg-gray-900 pt-12 pb-8">
@@ -47,10 +66,10 @@ const Footer: React.FC = () => {
           <div className="space-y-3">
             <h4 className="text-lg font-bold mb-3 text-red-500">Quick Links</h4>
             <ul className="space-y-2 text-sm text-gray-400">
-              <li><a href="#service" className="hover:text-red-400 transition">Our Services</a></li>
-              <li><a href="/contact" className="hover:text-red-400 transition">Contact</a></li>
-              <li><a href="/careers" className="hover:text-red-400 transition">Careers</a></li>
-              <li><a href="/blog" className="hover:text-red-400 transition">Blog</a></li>
+              <li><a onClick={(e) => handleScroll(e, '#service')} className="hover:text-red-400 transition cursor-pointer">Our Services</a></li>
+              <li><a onClick={(e) => handleScroll(e, '#contact')} className="hover:text-red-400 transition cursor-pointer">Contact</a></li>
+              <li><a onClick={(e) => handleScroll(e, '#pricing')} className="hover:text-red-400 transition cursor-pointer">Pricing</a></li>
+              <li><a onClick={(e) => handleScroll(e, '#package')} className="hover:text-red-400 transition cursor-pointer">Package</a></li>
             </ul>
           </div>
 
@@ -59,7 +78,7 @@ const Footer: React.FC = () => {
             <h4 className="text-lg font-bold mb-3 text-red-500">Services</h4>
             <ul className="space-y-2 text-sm text-gray-400">
               {servicesData.map((item) => (
-                <li key={item.category}><a href="#domain" className="hover:text-red-400 transition">{item.category}</a></li>
+                <li key={item.category}><a onClick={(e) => handleScroll(e, '#domain')} className="hover:text-red-400 transition cursor-pointer">{item.category}</a></li>
               ))}
             </ul>
           </div>
@@ -68,7 +87,7 @@ const Footer: React.FC = () => {
           <div className="space-y-3">
             <h4 className="text-lg font-bold mb-3 text-red-500">Insurance</h4>
             <ul className="space-y-2 text-sm text-gray-400">
-              <li><a href="#insurance" className="hover:text-red-400 transition">Claim Assistance</a></li>
+              <li><a onClick={(e) => handleScroll(e, '#insurance')} className="hover:text-red-400 transition cursor-pointer">Claim Assistance</a></li>
               <li><a href="tel:+919363039969" className="hover:text-red-400 transition">Call for Support</a></li>
             </ul>
           </div>
