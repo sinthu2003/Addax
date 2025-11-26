@@ -1,0 +1,942 @@
+/* Pricing Section - Welding Mask Theme */
+.pricing-section {
+    position: relative;
+    min-height: 700px;
+    padding: 80px 20px 80px;
+    background: hsl(var(--color-background));
+    overflow: hidden;
+}
+
+/* Floating Sparkles Effect - Magical golden sparkles across the section */
+.pricing-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+    background-image:
+        radial-gradient(circle, hsl(45, 100%, 60%) 1px, transparent 1px),
+        radial-gradient(circle, hsl(35, 100%, 50%) 1px, transparent 1px),
+        radial-gradient(circle, hsl(50, 100%, 70%) 1.5px, transparent 1.5px),
+        radial-gradient(circle, hsl(40, 100%, 55%) 1px, transparent 1px);
+    background-size: 200px 200px, 300px 300px, 250px 250px, 350px 350px;
+    background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+    animation: sparkleFloat 20s linear infinite;
+    opacity: 0.6;
+}
+
+@keyframes sparkleFloat {
+    0% {
+        background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+        opacity: 0.4;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+
+    100% {
+        background-position: 200px 200px, 240px 260px, 330px 470px, 270px 300px;
+        opacity: 0.4;
+    }
+}
+
+/* Additional sparkle layer with different timing */
+.pricing-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+    background-image:
+        radial-gradient(circle, hsl(45, 100%, 65%) 1.5px, transparent 1.5px),
+        radial-gradient(circle, hsl(50, 100%, 60%) 1px, transparent 1px),
+        radial-gradient(circle, hsl(40, 100%, 70%) 1px, transparent 1px);
+    background-size: 280px 280px, 320px 320px, 400px 400px;
+    background-position: 100px 50px, 200px 150px, 50px 200px;
+    animation: sparkleFloat2 25s linear infinite reverse;
+    opacity: 0.5;
+}
+
+@keyframes sparkleFloat2 {
+    0% {
+        background-position: 100px 50px, 200px 150px, 50px 200px;
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+
+    100% {
+        background-position: 300px 250px, 400px 350px, 250px 400px;
+        opacity: 0.3;
+    }
+}
+
+/* Background Welding Effects */
+.welding-bg-effects {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.bg-spark {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: hsl(45, 100%, 60%);
+    border-radius: 50%;
+    opacity: 0;
+    animation: bgSparkle 4s ease-in-out infinite;
+    box-shadow: 0 0 8px hsl(35, 100%, 50%), 0 0 12px hsl(25, 100%, 50%);
+}
+
+@keyframes bgSparkle {
+
+    0%,
+    100% {
+        opacity: 0;
+        transform: scale(0) translateY(0);
+    }
+
+    25% {
+        opacity: 0.8;
+        transform: scale(1.5) translateY(-15px);
+    }
+
+    50% {
+        opacity: 0.4;
+        transform: scale(1) translateY(-30px);
+    }
+}
+
+/* Distribute background sparks */
+.bg-spark-1 {
+    top: 10%;
+    left: 5%;
+    animation-delay: 0s;
+}
+
+.bg-spark-2 {
+    top: 20%;
+    right: 10%;
+    animation-delay: 0.5s;
+}
+
+.bg-spark-3 {
+    top: 30%;
+    left: 15%;
+    animation-delay: 1s;
+}
+
+.bg-spark-4 {
+    top: 40%;
+    right: 20%;
+    animation-delay: 1.5s;
+}
+
+.bg-spark-5 {
+    top: 50%;
+    left: 8%;
+    animation-delay: 2s;
+}
+
+.bg-spark-6 {
+    top: 60%;
+    right: 12%;
+    animation-delay: 2.5s;
+}
+
+.bg-spark-7 {
+    top: 70%;
+    left: 18%;
+    animation-delay: 3s;
+}
+
+.bg-spark-8 {
+    top: 80%;
+    right: 15%;
+    animation-delay: 3.5s;
+}
+
+.bg-spark-9 {
+    top: 15%;
+    left: 50%;
+    animation-delay: 0.8s;
+}
+
+.bg-spark-10 {
+    top: 35%;
+    right: 45%;
+    animation-delay: 1.3s;
+}
+
+.bg-spark-11 {
+    top: 55%;
+    left: 48%;
+    animation-delay: 1.8s;
+}
+
+.bg-spark-12 {
+    top: 75%;
+    right: 52%;
+    animation-delay: 2.3s;
+}
+
+.bg-spark-13 {
+    top: 25%;
+    left: 30%;
+    animation-delay: 0.3s;
+}
+
+.bg-spark-14 {
+    top: 45%;
+    right: 35%;
+    animation-delay: 0.9s;
+}
+
+.bg-spark-15 {
+    top: 65%;
+    left: 25%;
+    animation-delay: 1.4s;
+}
+
+.bg-spark-16 {
+    top: 85%;
+    right: 30%;
+    animation-delay: 1.9s;
+}
+
+.bg-spark-17 {
+    top: 12%;
+    left: 70%;
+    animation-delay: 2.4s;
+}
+
+.bg-spark-18 {
+    top: 38%;
+    right: 65%;
+    animation-delay: 2.9s;
+}
+
+.bg-spark-19 {
+    top: 58%;
+    left: 75%;
+    animation-delay: 3.4s;
+}
+
+.bg-spark-20 {
+    top: 78%;
+    right: 70%;
+    animation-delay: 3.9s;
+}
+
+.pricing-container {
+    position: relative;
+    max-width: 1400px;
+    margin: 0 auto;
+    z-index: 2;
+}
+
+/* Header Section - Simple Style like BrandCarousel */
+.pricing-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.pricing-title {
+    font-size: 3rem;
+    font-weight: 800;
+    color: hsl(var(--color-secondary));
+    margin-bottom: 15px;
+}
+
+.pricing-subtitle {
+    font-size: 1.2rem;
+    color: hsl(var(--color-secondary) / 0.7);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+/* Guide Title */
+.guide-title-wrapper {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.guide-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: hsl(var(--color-secondary));
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.weld-line {
+    width: 200px;
+    height: 4px;
+    background: linear-gradient(90deg, transparent 0%, hsl(var(--color-primary)) 50%, transparent 100%);
+    margin: 0 auto;
+    position: relative;
+    box-shadow: 0 0 10px hsl(var(--color-primary));
+}
+
+.weld-line::before,
+.weld-line::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: hsl(var(--color-primary));
+    border-radius: 50%;
+    top: -2px;
+    box-shadow: 0 0 8px hsl(var(--color-primary));
+}
+
+.weld-line::before {
+    left: 0;
+}
+
+.weld-line::after {
+    right: 0;
+}
+
+/* Category Section */
+.category-section {
+    margin-bottom: 60px;
+}
+
+.category-header {
+    margin-bottom: 30px;
+}
+
+.category-badge {
+    position: relative;
+    display: inline-block;
+    padding: 12px 40px 12px 30px;
+    background: linear-gradient(135deg, hsl(var(--color-primary)) 0%, hsl(var(--color-primary-light)) 100%);
+    clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 50%, calc(100% - 20px) 100%, 0 100%);
+    box-shadow: 0 4px 15px hsla(var(--color-primary), 0.4);
+}
+
+.badge-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.badge-weld {
+    position: absolute;
+    bottom: -5px;
+    left: 20px;
+    width: 60%;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+/* Welding Mask Cards Grid */
+.mask-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    padding: 20px 0;
+}
+
+/* Individual Mask Card */
+.mask-card {
+    position: relative;
+    perspective: 1500px;
+}
+
+/* Welding Mask Shape - Spider-Man Mask Oval Shape */
+.mask-shape {
+    position: relative;
+    background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+    /* Spider-Man mask oval shape using border-radius */
+    border-radius: 45% 45% 48% 48% / 50% 50% 50% 50%;
+    padding: 40px 25px 30px;
+    box-shadow:
+        0 15px 50px rgba(0, 0, 0, 0.7),
+        inset 0 2px 8px rgba(255, 255, 255, 0.05),
+        inset 0 -2px 8px rgba(0, 0, 0, 0.5);
+    border: 2px solid #3a3a3a;
+    transition: all 0.4s ease;
+    overflow: visible;
+    min-height: 380px;
+    display: flex;
+    flex-direction: column;
+    transform-style: preserve-3d;
+}
+
+.mask-shape:hover {
+    transform: translateY(-10px) rotateX(5deg);
+    box-shadow:
+        0 20px 60px hsla(var(--color-primary), 0.4),
+        inset 0 2px 8px rgba(255, 255, 255, 0.1),
+        inset 0 -2px 8px rgba(0, 0, 0, 0.5);
+    border-color: hsl(var(--color-primary));
+}
+
+/* Mask Visor (Dark Tinted Area) - Adjusted for oval shape */
+.mask-visor {
+    position: relative;
+    width: 90%;
+    height: 110px;
+    margin: 0 auto 20px;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #2a2a2a;
+    box-shadow:
+        inset 0 4px 12px rgba(0, 0, 0, 0.9),
+        0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.visor-tint {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg,
+            hsla(var(--color-primary), 0.15) 0%,
+            hsla(var(--color-primary-light), 0.08) 50%,
+            rgba(0, 0, 0, 0.4) 100%);
+}
+
+.visor-reflection {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    width: 50%;
+    height: 35%;
+    background: linear-gradient(135deg,
+            rgba(255, 255, 255, 0.15) 0%,
+            rgba(255, 255, 255, 0.03) 100%);
+    border-radius: 6px;
+    transform: skewX(-8deg);
+}
+
+/* Service Icon inside visor */
+.visor-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    opacity: 0.4;
+    transition: all 0.3s ease;
+    z-index: 2;
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
+}
+
+.mask-shape:hover .visor-icon {
+    opacity: 0.7;
+    transform: translate(-50%, -50%) scale(1.1);
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.5));
+}
+
+/* Sparkles inside the visor on hover - GOLDEN FIRE COLOR */
+.mask-visor::before,
+.mask-visor::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: hsl(45, 100%, 60%);
+    border-radius: 50%;
+    opacity: 0;
+    box-shadow:
+        0 0 10px hsl(35, 100%, 50%),
+        0 0 20px hsl(25, 100%, 50%);
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 3;
+}
+
+.mask-visor::before {
+    top: 30%;
+    left: 25%;
+    animation: visorSparkle1 2s ease-in-out infinite;
+}
+
+.mask-visor::after {
+    top: 60%;
+    right: 30%;
+    animation: visorSparkle2 2.5s ease-in-out infinite 0.5s;
+}
+
+.mask-shape:hover .mask-visor::before,
+.mask-shape:hover .mask-visor::after {
+    opacity: 1;
+}
+
+/* Additional visor sparkles using visor-reflection pseudo-elements */
+.visor-reflection::before,
+.visor-reflection::after {
+    content: '';
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: hsl(45, 100%, 60%);
+    border-radius: 50%;
+    opacity: 0;
+    box-shadow:
+        0 0 8px hsl(35, 100%, 50%),
+        0 0 16px hsl(25, 100%, 50%);
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 3;
+}
+
+.visor-reflection::before {
+    top: 45%;
+    left: 60%;
+    animation: visorSparkle3 2.2s ease-in-out infinite 0.3s;
+}
+
+.visor-reflection::after {
+    top: 25%;
+    right: 25%;
+    animation: visorSparkle4 2.8s ease-in-out infinite 0.8s;
+}
+
+.mask-shape:hover .visor-reflection::before,
+.mask-shape:hover .visor-reflection::after {
+    opacity: 1;
+}
+
+/* Visor sparkle animations */
+@keyframes visorSparkle1 {
+
+    0%,
+    100% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+@keyframes visorSparkle2 {
+
+    0%,
+    100% {
+        opacity: 0;
+        transform: scale(0.5) translateY(0);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.3) translateY(-3px);
+    }
+}
+
+@keyframes visorSparkle3 {
+
+    0%,
+    100% {
+        opacity: 0;
+        transform: scale(0.5) translateX(0);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.1) translateX(3px);
+    }
+}
+
+@keyframes visorSparkle4 {
+
+    0%,
+    100% {
+        opacity: 0;
+        transform: scale(0.5) translateX(0);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.4) translateX(-3px);
+    }
+}
+
+/* Mask Frame with Rivets */
+.mask-frame {
+    position: absolute;
+    top: 40px;
+    left: 25px;
+    right: 25px;
+    height: 110px;
+    pointer-events: none;
+}
+
+.frame-rivet {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: radial-gradient(circle, #4a4a4a 0%, #2a2a2a 70%);
+    border-radius: 50%;
+    border: 2px solid #1a1a1a;
+    box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.2);
+}
+
+.frame-rivet-1 {
+    top: 5px;
+    left: 5px;
+}
+
+.frame-rivet-2 {
+    top: 5px;
+    right: 5px;
+}
+
+.frame-rivet-3 {
+    bottom: 5px;
+    left: 5px;
+}
+
+.frame-rivet-4 {
+    bottom: 5px;
+    right: 5px;
+}
+
+/* Service Info */
+.service-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 15px;
+    padding: 0 10px;
+}
+
+.service-name {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+    line-height: 1.3;
+    text-align: center;
+}
+
+.service-duration {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 1rem;
+    color: #b0b0b0;
+}
+
+.duration-icon {
+    font-size: 1.2rem;
+}
+
+/* Price Reveal with Welding Effect */
+.price-reveal {
+    position: relative;
+    margin-top: auto;
+    padding: 15px;
+    background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
+    border-radius: 8px;
+    border: 2px solid #2a2a2a;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    opacity: 0.3;
+    transition: all 0.5s ease;
+}
+
+.price-reveal.visible {
+    opacity: 1;
+    border-color: hsl(var(--color-primary));
+    box-shadow:
+        0 0 20px hsla(var(--color-primary), 0.4),
+        inset 0 0 15px hsla(var(--color-primary), 0.1);
+}
+
+/* Welding Sparks on Price Reveal - GOLDEN FIRE COLOR */
+.weld-spark {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: hsl(45, 100%, 60%);
+    border-radius: 50%;
+    opacity: 0;
+    box-shadow: 0 0 8px hsl(35, 100%, 50%), 0 0 12px hsl(25, 100%, 50%);
+    animation: sparkFly 1.5s ease-out forwards;
+}
+
+@keyframes sparkFly {
+    0% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(var(--tx), var(--ty)) scale(0.3);
+    }
+}
+
+.spark-1 {
+    --tx: -30px;
+    --ty: -40px;
+    animation-delay: 0s;
+}
+
+.spark-2 {
+    --tx: 30px;
+    --ty: -40px;
+    animation-delay: 0.05s;
+}
+
+.spark-3 {
+    --tx: -40px;
+    --ty: -20px;
+    animation-delay: 0.1s;
+}
+
+.spark-4 {
+    --tx: 40px;
+    --ty: -20px;
+    animation-delay: 0.15s;
+}
+
+.spark-5 {
+    --tx: -35px;
+    --ty: 0px;
+    animation-delay: 0.2s;
+}
+
+.spark-6 {
+    --tx: 35px;
+    --ty: 0px;
+    animation-delay: 0.25s;
+}
+
+.spark-7 {
+    --tx: -25px;
+    --ty: 20px;
+    animation-delay: 0.3s;
+}
+
+.spark-8 {
+    --tx: 25px;
+    --ty: 20px;
+    animation-delay: 0.35s;
+}
+
+.spark-9 {
+    --tx: 0px;
+    --ty: -45px;
+    animation-delay: 0.4s;
+}
+
+.spark-10 {
+    --tx: -50px;
+    --ty: -10px;
+    animation-delay: 0.45s;
+}
+
+.spark-11 {
+    --tx: 50px;
+    --ty: -10px;
+    animation-delay: 0.5s;
+}
+
+.spark-12 {
+    --tx: 0px;
+    --ty: 25px;
+    animation-delay: 0.55s;
+}
+
+/* Price Display */
+.price-display {
+    position: relative;
+    z-index: 2;
+}
+
+.price-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, hsla(var(--color-primary), 0.3) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.price-reveal.visible .price-glow {
+    opacity: 1;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.6;
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 1;
+    }
+}
+
+.price-value {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: hsl(var(--color-primary));
+    text-shadow: 0 0 15px hsla(var(--color-primary), 0.6);
+    position: relative;
+    z-index: 3;
+}
+
+/* Welding Flash Overlay */
+.weld-flash {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, hsla(var(--color-primary), 0.6) 0%, transparent 70%);
+    opacity: 0;
+    pointer-events: none;
+    animation: flash 0.8s ease-out forwards;
+}
+
+@keyframes flash {
+    0% {
+        opacity: 0;
+    }
+
+    30% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Footer Note */
+.pricing-footer {
+    margin-top: 60px;
+    text-align: center;
+}
+
+.footer-plate {
+    position: relative;
+    display: inline-block;
+    padding: 20px 40px;
+    background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
+    border: 2px solid #2a2a2a;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.footer-note {
+    font-size: 0.95rem;
+    color: #888888;
+    font-style: italic;
+    margin: 0;
+}
+
+.plate-edge {
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    width: 80%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent 0%, #3a3a3a 50%, transparent 100%);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .pricing-title {
+        font-size: 2.2rem;
+    }
+
+    .pricing-subtitle {
+        font-size: 1rem;
+    }
+
+    .guide-title {
+        font-size: 1.8rem;
+    }
+
+    .mask-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .mask-shape {
+        min-height: 350px;
+    }
+
+    .category-badge {
+        padding: 10px 30px 10px 20px;
+    }
+
+    .badge-text {
+        font-size: 1.2rem;
+    }
+
+    .visor-icon {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .pricing-section {
+        padding: 60px 15px;
+    }
+
+    .pricing-title {
+        font-size: 1.8rem;
+    }
+
+    .guide-title {
+        font-size: 1.5rem;
+    }
+
+    .service-name {
+        font-size: 1.1rem;
+    }
+
+    .price-value {
+        font-size: 1.3rem;
+    }
+
+    .visor-icon {
+        font-size: 2rem;
+    }
+}

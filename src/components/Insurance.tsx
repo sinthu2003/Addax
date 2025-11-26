@@ -129,7 +129,7 @@ const InsuranceSection = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         className="text-3xl md:text-4xl font-extrabold text-black dark:text-white mb-2"
                     >
-                        Insurance Claim Assistance
+                        Insurance Claim Assistance 🛡️
                     </motion.h2>
                     <p className="mt-2 text-base md:text-xl text-gray-600 dark:text-gray-400">
                         Complete support for your vehicle insurance claims with expert documentation, surveyor coordination, and direct settlement services</p>

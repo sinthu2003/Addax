@@ -6,6 +6,7 @@ import ServicesPage from './ServicesPage'
 import BrandCarousel from './BrandCarousel'
 import Insurance from './Insurance'
 import Statistics from './Statistics'
+import Pricing from './Pricing/Pricing'
 
 const Main = () => {
   return (
@@ -16,6 +17,7 @@ const Main = () => {
       <ServicesPage />
       <Insurance />
       <Statistics />
+      <Pricing />
       <Footer />
     </StaticDataProvider>
   )

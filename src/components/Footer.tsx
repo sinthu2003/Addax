@@ -68,11 +68,8 @@ const Footer: React.FC = () => {
           <div className="space-y-3">
             <h4 className="text-lg font-bold mb-3 text-red-500">Insurance</h4>
             <ul className="space-y-2 text-sm text-gray-400">
-              <li><a href="/insurance#claim" className="hover:text-red-400 transition">Claim Assistance</a></li>
-              <li><a href="/insurance#docs" className="hover:text-red-400 transition">Documentation Help</a></li>
-              <li><a href="/insurance#surveyor" className="hover:text-red-400 transition">Surveyor Coordination</a></li>
-              <li><a href="/insurance#settlement" className="hover:text-red-400 transition">Direct Settlement</a></li>
-              <li><a href="/insurance#partners" className="hover:text-red-400 transition">Insurance Partners</a></li>
+              <li><a href="#insurance" className="hover:text-red-400 transition">Claim Assistance</a></li>
+              <li><a href="tel:+919363039969" className="hover:text-red-400 transition">Call for Support</a></li>
             </ul>
           </div>
         </div>
