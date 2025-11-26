@@ -177,8 +177,8 @@ const ServicesPage: React.FC = () => {
                         {/* Call to Action and View All Button */}
                         <div className="flex items-center space-x-4 mt-6">
                             <a
-                                href={`/book?service=${currentActiveService.name.replace(/\s/g, '-')}`}
-                                className="inline-flex items-center bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg text-lg font-semibold transition duration-300 shadow-xl"
+
+                                className="inline-flex items-center bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg text-lg font-semibold transition duration-300 shadow-xl cursor-pointer"
                             >
                                 Book Quick Service <FiArrowRight className="ml-2 w-5 h-5" />
                             </a>

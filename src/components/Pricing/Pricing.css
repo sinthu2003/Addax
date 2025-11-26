@@ -260,7 +260,7 @@
     font-size: 3rem;
     font-weight: 800;
     color: hsl(var(--color-secondary));
-    margin-bottom: 15px;
+    margin-bottom: 5px;
 }
 
 .pricing-subtitle {

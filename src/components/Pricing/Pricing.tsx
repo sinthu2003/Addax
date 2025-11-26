@@ -94,8 +94,7 @@ const Pricing: React.FC = () => {
                 <div className="pricing-header">
                     <h2 className="pricing-title">Transparent Pricing 🔥</h2>
                     <p className="pricing-subtitle">
-                        Honest, upfront pricing with no hidden charges. Choose from individual services or
-                        money-saving maintenance packages tailored to your needs.
+                        Honest, upfront pricing with no hidden charges
                     </p>
                 </div>
 
