@@ -317,11 +317,36 @@
 
 @media (max-width: 768px) {
     .pipe-container-corner {
-        transform: scale(0.7);
+        transform: scale(0.6);
         transform-origin: top left;
+        /* Hide 2/6 of the image (approx 33%) */
+        left: -100px;
+        /* Adjust this value to hide 2/6 of the 300px width */
     }
 
     .water-spray-corner {
-        display: none;
+        display: block;
+        top: 120px;
+        /* Lowered to match new pipe position */
+        left: 180px;
+        /* Adjusted to align with nozzle tip */
+        width: 300px;
+    }
+
+    .water-particle-corner {
+        animation-name: sprayCornerMobile;
+    }
+}
+
+@keyframes sprayCornerMobile {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.9;
+    }
+
+    100% {
+        /* Straight down flow */
+        transform: translate(20px, 400px) scale(0.4);
+        opacity: 0;
     }
 }

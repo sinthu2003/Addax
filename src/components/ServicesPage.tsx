@@ -147,7 +147,7 @@ const ServicesPage: React.FC = () => {
                     </div>
 
                     {/* Right Side: Service Details and Selector */}
-                    <div className="md:w-3/5 lg:w-1/2 ml-auto p-4 md:p-8 relative z-20 bg-black/50 md:bg-transparent rounded-xl">
+                    <div className="md:w-3/5 lg:w-1/2 ml-auto p-4 md:p-8 relative z-20 bg-black/50 lg:bg-transparent rounded-xl">
 
                         <h2 className="text-4xl sm:text-6xl font-extrabold text-red-500 mb-6">
                             {activeCategory ? activeCategory : 'Precision Service, Dynamic Results'}
